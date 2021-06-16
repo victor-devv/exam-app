@@ -14,9 +14,14 @@ class QuestionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($category_id)
     {
-        //
+        $response = array(
+            'status' => 'success',
+            'questions' => Question::where('category_id', $category_id)
+        );
+        return response()->json($response); 
+
     }
 
     /**
